@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Details</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Log Details</h1>
+    <h3>{{ log.file.name }}</h3>
+
+    <form method="POST" action="{% url 'generate_report' log.id 'pdf' %}">
+        {% csrf_token %}
+        <p>Select Columns for Report:</p>
+        
+        {% for column in columns %}
+            <label>
+                <input type="checkbox" name="columns" value="{{ column }}" checked> {{ column }}
+            </label>
+            <br>
+        {% endfor %}
+
+        <br>
+        <button type="submit">Download PDF Report</button>
+    </form>
+
+    <a href="{% url 'log_list' %}">Back to Logs</a>
+</body>
+</html>

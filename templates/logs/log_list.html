@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Logs</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+   <nav class="navbar">
+    <div class="container">
+        <h1 class="logo">DroneXtract</h1>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'upload' %}">Upload</a></li>
+            <li><a href="#">Reports</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Logs List -->
+    <div class="container">
+        <h2>Uploaded Drone Logs</h2>
+
+        {% if logs %}
+        <table class="log-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Filename</th>
+                    <th>Uploaded At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr>
+                    <td>{{ log.id }}</td>
+                    <td>{{ log.file.name }}</td>
+                    <td>{{ log.uploaded_at }}</td>
+                    <td>
+                        <a href="{% url 'view_log' log.id %}" class="btn">View</a>
+                        <a href="{% url 'generate_report' log.id 'pdf' %}" class="btn download-btn">Download PDF</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No logs uploaded yet.</p>
+        {% endif %}
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
