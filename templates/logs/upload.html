@@ -1,93 +1,50 @@
+{% extends "logs/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Drone Logs - DroneXtract</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .navbar {
-            background-color: #0056b3;
-            padding: 15px 0;
-            color: white;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        h2 {
-            text-align: center;
-            color: #0056b3;
-        }
-        .form-group {
-            margin: 15px 0;
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .table th, .table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        .table th {
-            background-color: #0056b3;
-            color: white;
-        }
-    </style>
-</head>
-<body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <h1>DroneXtract</h1>
-        <ul class="nav-links">
-            <li><a href="{% url 'home' %}" class="btn">Home</a></li>
-            <li><a href="{% url 'upload' %}" class="btn">Upload</a></li>
-            <li><a href="{% url 'log_list' %}" class="btn">Logs</a></li>
-        </ul>
-    </nav>
+{% block title %}Upload Drone Logs - DroneXtract{% endblock %}
 
-    <!-- Upload Form -->
-    <div class="container">
-        <h2>Upload Drone Log</h2>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/upload.css' %}?v=3">
+{% endblock %}
+
+{% block content %}
+<div class="container-upload">
+    <h2 class="heading-upload">📤 Upload Drone Log</h2>
+    <p class="description-upload">Only <strong>CSV files</strong> are accepted for analysis.</p>
+
+    <div class="upload-container">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="form-group">
-                <label for="file">Select File:</label>
-                <input type="file" name="file" id="file" required>
+            
+            {% if form.errors %}
+                <div class="form-errors" style="color: red; margin-bottom: 15px;">
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="form-group-upload">
+                <label for="drone_model">Drone Model:</label>
+                <input type="text" name="drone_model" id="drone_model" required>
             </div>
-            <button type="submit" class="btn">Upload</button>
+            
+            <div class="form-group-upload">
+                <label for="exhibit_no">Exhibit No:</label>
+                <input type="text" name="exhibit_no" id="exhibit_no" required>
+            </div>
+            
+
+            <div class="form-group-upload">
+                <label for="file">Select File:</label>
+                <input type="file" name="file" id="file" accept=".csv" required>
+            </div>
+
+            <button type="submit" class="btn-upload">Upload</button>
         </form>
     </div>
 
-</body>
-</html>
+    <a href="{% url 'dashboard' %}" class="back-link-upload">⬅ Dashboard</a>
+</div>
+{% endblock %}

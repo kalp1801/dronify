@@ -1,0 +1,50 @@
+{% extends "logs/base.html" %}
+{% load static %}
+
+{% block title %}Select Columns - Dronify{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/select_column.css' %}?v=2">
+
+<div class="select-column-container glass-box">
+    <h2 class="select-column-title">📊 Select Columns for Combined Graph</h2>
+
+    {% if error %}
+        <p class="error-message-column">{{ error }}</p>
+    {% else %}
+        <form method="POST" id="columnForm">
+            {% csrf_token %}
+
+            <div class="checkbox-group-column">
+                {% for index, column in columns %}
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="column_indexes" value="{{ index }}">
+                        {{ column }}
+                    </label>
+                {% endfor %}
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-glass">
+                    📈 Generate Graph
+                </button>
+                <a href="{% url 'upload_telemetry' %}" class="btn-glass-secondary">
+                    ⬅ Back to Upload
+                </a>
+            </div>
+        </form>
+    {% endif %}
+</div>
+
+<script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const submitBtn = document.querySelector('button[type="submit"]');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+            submitBtn.disabled = !anyChecked;
+        });
+    });
+</script>
+{% endblock %}

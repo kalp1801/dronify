@@ -1,56 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DroneXtract - Home</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">DroneXtract</h1>
-            <ul class="nav-links">
-                <li><a href="{% url 'upload' %}">Upload Logs</a></li>
-                <li><a href="{% url 'log_list' %}">View Logs</a></li>
-                <li><a href="#">Generate Reports</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>Welcome to DroneXtract</h2>
-            <p>A powerful tool for analyzing and reporting drone flight logs.</p>
-            <a href="{% url 'upload' %}" class="btn">Get Started</a>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="feature-box">
-                <h3>Upload Logs</h3>
-                <p>Upload your drone flight logs easily in CSV format.</p>
-                <a href="{% url 'upload' %}" class="btn">Upload Now</a>
-            </div>
-            <div class="feature-box">
-                <h3>Analyze Data</h3>
-                <p>View detailed information and insights from your flight logs.</p>
-                <a href="{% url 'log_list' %}" class="btn">View Logs</a>
-            </div>
-            <div class="feature-box">
-                <h3>Generate Reports</h3>
-                <p>Download structured reports in PDF format for analysis.</p>
-                <a href="#" class="btn">Generate Report</a>
-            </div>
-        </div>
-    </section>
-
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+{% extends "logs/base.html" %}
+{% block content %}
+<section class="hero">
+    <div class="glass-box">
+        <h2>Welcome to DRONIFY</h2>
+        <p>From Flight Data to Forensic Evidence</p>
+        {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}" class="btn">Get Started</a>
+        {% else %}
+            <a href="{% url 'signup' %}" class="btn">Sign Up to Begin</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

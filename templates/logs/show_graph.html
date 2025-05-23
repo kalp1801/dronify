@@ -1,0 +1,75 @@
+{% extends "logs/base.html" %}
+{% load static %}
+
+{% block title %}Telemetry Visualization - Dronify{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/telemetry_graph.css' %}?v=4">
+
+<div class="telemetry-container-graph">
+    <h2 class="telemetry-heading-graph">📈 Telemetry Visualization</h2>
+
+    {% if error %}
+        <p class="telemetry-error-graph">{{ error }}</p>
+    {% else %}
+
+        {% if coords_3d %}
+        {{ coords_3d|json_script:"coords-data" }}
+        <div class="telemetry-graph-box glass-box-graph">
+            <h3 style="text-align:center; margin-bottom:10px;">🛰️ Interactive 3D Drone Path</h3>
+            <div id="plotly-3d-map" style="height: 500px;"></div>
+        </div>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script>
+            const coords = JSON.parse(document.getElementById("coords-data").textContent);
+            const lat = coords.lat;
+            const lon = coords.lon;
+            const alt = coords.alt;
+        
+            const trace3d = {
+                type: 'scatter3d',
+                mode: 'lines+markers',
+                x: lon,
+                y: lat,
+                z: alt,
+                marker: {
+                    size: 3,
+                    color: 'blue'
+                },
+                line: {
+                    width: 2,
+                    color: 'cyan'
+                }
+            };
+        
+            const layout = {
+                margin: { l: 0, r: 0, b: 0, t: 30 },
+                scene: {
+                    xaxis: { title: 'Longitude' },
+                    yaxis: { title: 'Latitude' },
+                    zaxis: { title: 'Altitude' }
+                }
+            };
+        
+            Plotly.newPlot('plotly-3d-map', [trace3d], layout);
+        </script>
+        {% endif %}
+
+        {% for graph in graph_urls %}
+            <div class="telemetry-graph-box glass-box-graph">
+                <h3 style="text-align:center; margin-bottom:10px;">📍 {{ graph.column }}</h3>
+                <img src="{{ graph.url }}" alt="Telemetry Graph - {{ graph.column }}">
+            </div>
+        {% endfor %}
+
+        <div class="telemetry-btn-group-graph">
+            <a href="{% url 'generate_report_telemetry' file_id=file_id report_type='pdf' %}?cols={{ selected_indexes }}" class="telemetry-btn">Download PDF</a>
+            <!-- <a href="{% url 'generate_report_telemetry' file_id=file_id report_type='html' %}?cols={{ selected_indexes }}" class="telemetry-btn">View HTML Report</a> -->
+        </div>
+    {% endif %}
+
+    <div class="telemetry-back-link-graph">
+        <a href="{% url 'select_telemetry_column' file_id=file_id %}" class="btn-graph-secondary">⬅ Back to Column Selection</a>
+    </div>
+</div>
+{% endblock %}

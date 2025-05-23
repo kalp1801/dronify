@@ -1,0 +1,47 @@
+{% extends "logs/base.html" %}
+{% load static %}
+{% block title %}Dronify Dashboard{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Welcome, {{ user.username }}</h1>
+        <p>Track, Analyze, and Investigate Drone Forensics Efficiently.</p>
+    </div>
+
+    <div class="dashboard-cards">
+        <div class="dashboard-card">
+            <h3>📂 Upload Logs</h3>
+            <p>Submit and parse new drone log files.</p>
+            <a href="{% url 'upload' %}" class="dashboard-btn">Upload</a>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>🧾 View Parsed Logs</h3>
+            <p>Review uploaded drone log files and insights.</p>
+            <a href="{% url 'log_list' %}" class="dashboard-btn">View Logs</a>
+        </div>
+
+        
+        <div class="dashboard-card">
+            <h3>📈 Telemetry Analysis</h3>
+            <p>Visualize flight paths and metrics.</p>
+            <a href="{% url 'upload_telemetry' %}" class="dashboard-btn">Analyze</a>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>🖼️ EXIF Metadata</h3>
+            <p>Extract image-based forensic metadata.</p>
+            <a href="{% url 'exif_analysis' %}" class="dashboard-btn">Start</a>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>📝 Generate Reports</h3>
+            <p>Download parsed, telemetry, and EXIF reports.</p>
+            <a href="{% url 'reports_dashboard' %}" class="dashboard-btn">Reports</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,117 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Dark Mode Background */
+body {
+    background: #0a0a0a;
+    color: white;
+}
+
+/* Container */
+.telemetry-container-graph {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+    text-align: center;
+}
+
+/* Heading */
+.telemetry-heading-graph {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #00ffff;
+}
+
+/* Graph Box */
+.telemetry-graph-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    margin-bottom: 30px;
+}
+
+.telemetry-graph-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Buttons */
+.telemetry-btn-group-graph {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.btn-graph,
+.btn-graph-secondary {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Primary Button */
+.btn-graph {
+    background-color: #00ffff;
+    color: black;
+    border: none;
+}
+
+.btn-graph:hover {
+    background-color: #008c8c;
+    color: white;
+    box-shadow: 0px 0px 10px #00ffff;
+}
+
+/* Secondary Button */
+.btn-graph-secondary {
+    background: transparent;
+    border: 1px solid #00ffff;
+    color: #00ffff;
+}
+
+.btn-graph-secondary:hover {
+    background-color: #00ffff;
+    color: black;
+    box-shadow: 0px 0px 10px #00ffffaa;
+}
+
+/* Error Message */
+.telemetry-error-graph {
+    color: red;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Back Link */
+.telemetry-back-link-graph {
+    margin-top: 10px;
+}
+
+.telemetry-btn {
+    background-color: #00ffff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+}

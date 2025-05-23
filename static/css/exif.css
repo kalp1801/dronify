@@ -1,0 +1,10 @@
+/* Add to your CSS or keep shared look with telemetry.css */
+.telemetry-options ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.telemetry-options li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,255,255,0.2);
+}

@@ -1,0 +1,139 @@
+/* 🌌 Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #0b0f1a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* 🚀 Navbar */
+.navbar-upload {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(0, 15, 30, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #00ffff33;
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.2);
+}
+
+.logo-upload {
+    font-size: 30px;
+    font-weight: 700;
+    color: #00ffff;
+    letter-spacing: 1.2px;
+    text-decoration: none;
+}
+
+.nav-links-upload {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links-upload li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links-upload li a:hover {
+    background-color: rgba(0, 255, 255, 0.15);
+    color: #00ffff;
+    box-shadow: 0 0 12px #00ffffaa;
+}
+
+/* 📂 Upload Container */
+.container-upload {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    text-align: center;
+}
+
+.heading-upload {
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.description-upload {
+    font-size: 18px;
+    color: #d0faff;
+    margin-bottom: 30px;
+}
+
+/* 🧾 Form Input */
+.form-group-upload {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group-upload label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #ffffff;
+    display: block;
+}
+
+.form-group-upload input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid #00ffff50;
+    color: white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* 🚀 Button */
+.btn-upload {
+    background: #00ffff;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 26px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #00ffff88;
+    border: none;
+}
+
+.btn-upload:hover {
+    background-color: #008c8c;
+    color: #ffffff;
+    box-shadow: 0 0 18px #00ffff;
+}
+
+/* 🔙 Back */
+.back-link-upload {
+    display: inline-block;
+    margin-top: 30px;
+    color: #00ffff;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.back-link-upload:hover {
+    text-decoration: underline;
+    color: #00ffffcc;
+}

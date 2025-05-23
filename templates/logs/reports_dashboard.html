@@ -1,0 +1,25 @@
+{% extends 'logs/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-section">
+    <h2>📑 Generate Reports</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Parsed Data Reports</h3>
+            <p>Generate reports for uploaded logs.</p>
+            <a href="{% url 'generate_reports' %}" class="card-btn">Generate</a>
+        </div>
+        <div class="card">
+            <h3>Telemetry Reports</h3>
+            <p>Visualize and report telemetry data.</p>
+            <a href="{% url 'telemetry_reports' %}" class="card-btn">Telemetry</a>
+        </div>
+        <div class="card">
+            <h3>EXIF Reports</h3>
+            <p>Download EXIF metadata forensic reports.</p>
+            <a href="{% url 'exif_reports' %}" class="card-btn">EXIF</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

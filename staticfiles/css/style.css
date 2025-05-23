@@ -1,0 +1,114 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* 🌟 Super Class UI - Dark Glassmorphism Theme */
+body {
+    background: #0a0a0a;
+    color: white;
+}
+
+/* 🚀 Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+/* Navbar Brand */
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #00ffff;
+    text-transform: uppercase;
+}
+
+/* Navbar Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+/* Neon Hover Effect */
+.nav-links li a:hover {
+    background: rgba(0, 255, 255, 0.2);
+    color: #00ffff;
+    box-shadow: 0px 0px 8px #00ffff;
+}
+
+/* 🔥 Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    text-align: center;
+    background: linear-gradient(135deg, #001f3f, #00d9ff);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating Glass Effect */
+.hero .glass-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+/* Hero Title */
+.hero h2 {
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: white;
+}
+
+/* Hero Subtitle */
+.hero p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+}
+
+/* 🚀 Modern Button */
+.btn {
+    background: #00ffff;
+    color: #000;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px #00ffff;
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background: #008c8c;
+    color: white;
+    box-shadow: 0px 0px 15px #00ffff;
+}

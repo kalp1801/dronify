@@ -1,0 +1,117 @@
+/* Unified Telemetry Styling */
+body {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
+
+.telemetry-container {
+    width: 60%;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    text-align: center;
+}
+
+.telemetry-heading {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #00ffff;
+}
+
+.telemetry-error {
+    color: red;
+    font-weight: bold;
+}
+
+.telemetry-form input[type="file"],
+.telemetry-form button {
+    margin-top: 15px;
+}
+
+.telemetry-options {
+    text-align: left;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.telemetry-option {
+    display: block;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.telemetry-btn {
+    background-color: #00ffff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.telemetry-btn:hover {
+    background-color: #008c8c;
+    color: white;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.telemetry-graph img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    display: block;
+    margin: 0 auto;
+}
+
+.telemetry-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.telemetry-back-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-glass, .btn-glass-secondary {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-glass {
+    background: #00ffff;
+    color: black;
+    box-shadow: 0 0 12px #00ffffaa;
+}
+
+.btn-glass:hover {
+    background: #008c8c;
+    color: white;
+}
+
+.btn-glass-secondary {
+    background: transparent;
+    border: 1px solid #00ffff;
+    color: #00ffff;
+}
+
+.btn-glass-secondary:hover {
+    background: #00ffff;
+    color: #000;
+}
+

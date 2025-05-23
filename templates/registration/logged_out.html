@@ -1,0 +1,8 @@
+{% extends "logs/base.html" %}
+{% block content %}
+<div class="telemetry-container">
+    <h2 class="telemetry-heading">Logged Out</h2>
+    <p>You have been successfully logged out.</p>
+    <a href="{% url 'login' %}" class="telemetry-btn">Login Again</a>
+</div>
+{% endblock %}

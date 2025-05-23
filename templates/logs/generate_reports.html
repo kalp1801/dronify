@@ -1,0 +1,36 @@
+{% extends "logs/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-reports">
+    <h2 class="heading-reports">Generate Reports</h2>
+    <p class="description-reports">Select a drone log to generate a detailed report.</p>
+
+
+    {% if logs %}    
+    <table class="reports-table">
+        <thead>
+            <tr>
+                <th>Filename</th>
+                <th>Uploaded At</th>
+                <th>Generate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.file.name }}</td>
+                <td>{{ log.uploaded_at|date:"M d, Y H:i" }}</td>
+                <td>
+                    <a href="{% url 'generate_report' log.id 'pdf' %}" class="btn-reports download-btn-reports">PDF</a>
+                    <a href="{% url 'generate_report' log.id 'html' %}" class="btn-reports download-btn-reports">HTML</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="no-reports-message">No logs available for report generation.</p>
+    {% endif %}
+</div>
+{% endblock %}

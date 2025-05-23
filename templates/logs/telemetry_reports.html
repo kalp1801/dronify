@@ -1,0 +1,46 @@
+{% extends "logs/base.html" %}
+{% load static %}
+{% block title %}Telemetry Reports - Dronify{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/reports_style.css' %}">
+
+<div class="container-reports">
+    <h2 class="heading-reports">Telemetry Reports</h2>
+    <p class="description-reports">Select a telemetry file to generate a detailed report.</p>
+
+    {% if telemetry_logs %}
+    <!-- 🧹 Clear Logs Button -->
+    <form method="POST" action="{% url 'clear_user_logs' %}" onsubmit="return confirm('Are you sure you want to delete all your logs?');">
+        {% csrf_token %}
+        <button type="submit" class="btn-reports btn-danger" style="margin-bottom: 20px;">
+            🗑️ Clear My Logs
+        </button>
+    </form>
+    <table class="reports-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Filename</th>
+                <th>Uploaded At</th>
+                <th>Generate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in telemetry_logs %}
+            <tr>
+                <td>#{{ log.id }}</td>
+                <td>{{ log.file.name }}</td>
+                <td>{{ log.uploaded_at|date:"M d, Y H:i" }}</td>
+                <td>
+                    <a href="{% url 'generate_report_telemetry' file_id=log.id report_type='pdf' %}" class="btn-reports">PDF</a>
+                    <a href="{% url 'generate_report_telemetry' file_id=log.id report_type='html' %}" class="btn-reports">HTML</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="no-reports-message">No telemetry logs available for report generation.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "logs/base.html" %}
+{% load static %}
+{% block title %}EXIF Reports - Dronify{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/reports_style.css' %}">
+
+<div class="container-reports">
+    <h2 class="heading-reports">EXIF Reports</h2>
+    <p class="description-reports">Download EXIF metadata report from your last analysis.</p>
+
+    {% if has_data %}
+        <table class="reports-table">
+            <thead>
+                <tr>
+                    <th>Filename</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ filename }}</td>
+                    <td>
+                        <a href="{% url 'download_exif_pdf' %}" class="btn-reports">Download PDF</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <p class="no-reports-message">No EXIF metadata available yet. Please upload an image on the <a href="{% url 'exif_analysis' %}" style="color:#00ffff;">EXIF Analysis</a> page first.</p>
+    {% endif %}
+</div>
+{% endblock %}

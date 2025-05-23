@@ -1,59 +1,46 @@
+{% extends 'logs/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drone Logs</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
 
-    <!-- Navigation Bar -->
-   <nav class="navbar">
-    <div class="container">
-        <h1 class="logo">DroneXtract</h1>
-        <ul class="nav-links">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'upload' %}">Upload</a></li>
-            <li><a href="#">Reports</a></li>
-        </ul>
-    </div>
-</nav>
+{% block title %}Drone Logs - Dronify{% endblock %}
 
-    <!-- Logs List -->
-    <div class="container">
-        <h2>Uploaded Drone Logs</h2>
+{% block content %}
+<div class="container-reports">
+    <h2 class="heading-reports">📂 Uploaded Drone Logs</h2>
+    <p class="description-reports">View and generate reports from your uploaded flight logs.</p>
 
-        {% if logs %}
-        <table class="log-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Filename</th>
-                    <th>Uploaded At</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for log in logs %}
-                <tr>
-                    <td>{{ log.id }}</td>
-                    <td>{{ log.file.name }}</td>
-                    <td>{{ log.uploaded_at }}</td>
-                    <td>
-                        <a href="{% url 'view_log' log.id %}" class="btn">View</a>
-                        <a href="{% url 'generate_report' log.id 'pdf' %}" class="btn download-btn">Download PDF</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% else %}
-        <p>No logs uploaded yet.</p>
-        {% endif %}
-    </div>
+    {% if logs %}
+    <!-- 🧹 Clear Logs Button -->
+    <form method="POST" action="{% url 'clear_user_logs' %}" onsubmit="return confirm('Are you sure you want to delete all your logs?');">
+        {% csrf_token %}
+        <button type="submit" class="btn-reports btn-danger" style="margin-bottom: 20px;">
+            🗑️ Clear My Logs
+        </button>
+    </form>
 
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+    <!-- 🧾 Logs Table -->
+    <table class="reports-table">
+        <thead>
+            <tr>
+                <th>Filename</th>
+                <th>Uploaded</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.file.name }}</td>
+                <td>{{ log.uploaded_at|date:"M d, Y H:i" }}</td>
+                <td>
+                    <a href="{% url 'view_log' log.id %}" class="btn-reports">View</a>
+                    <a href="{% url 'generate_report' log.id 'pdf' %}" class="btn-reports">Download PDF</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="no-reports-message">🚫 No logs uploaded yet. Upload from dashboard or home page.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "logs/base.html" %}
+{% load static %}
+{% block content %}
+<div class="form-container-glass">
+    <h2 class="form-heading">LOG IN</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-form">Log In</button>
+    </form>
+    <p class="form-note">If not sign up here<a href="{% url 'signup' %}">Sign-UP</a></p>
+</div>
+{% endblock %}

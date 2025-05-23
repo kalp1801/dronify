@@ -1,0 +1,27 @@
+{% extends "logs/base.html" %}
+{% load static %}
+{% block title %}Upload Image for EXIF Analysis - Dronify{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/telemetry.css' %}?v=2">
+
+<div class="telemetry-container glass-box">
+    <h2 class="telemetry-heading">🖼️ Upload Image for EXIF Analysis</h2>
+    <p class="telemetry-description">Select an image file to extract and analyze embedded EXIF metadata.</p>
+
+    <form method="POST" enctype="multipart/form-data" class="telemetry-form">
+        {% csrf_token %}
+        
+        <div class="telemetry-form-group">
+            <label for="image">Select Image File:</label>
+            <input type="file" name="image" accept="image/*" required>
+        </div>
+
+        <button type="submit" class="btn-glass">🔍 Analyze</button>
+    </form>
+
+    <div class="telemetry-back-link">
+        <a href="{% url 'dashboard' %}" class="btn-glass-secondary">⬅ Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+/* EXIF Analysis Styling */
+body {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
+
+.glass-box {
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    padding: 30px;
+    margin: 40px auto;
+    width: 65%;
+    text-align: center;
+}
+
+.telemetry-heading {
+    font-size: 28px;
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+.telemetry-description {
+    font-size: 16px;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.telemetry-table-wrapper {
+    overflow-x: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.telemetry-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.telemetry-table th,
+.telemetry-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #00ffff33;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.telemetry-table th {
+    background-color: rgba(0, 255, 255, 0.1);
+    color: #00ffff;
+}
+
+.telemetry-btn-group {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-glass, .btn-glass-secondary {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.btn-glass {
+    background: #00ffff;
+    color: black;
+    box-shadow: 0 0 12px #00ffffaa;
+}
+
+.btn-glass:hover {
+    background: #008c8c;
+    color: white;
+}
+
+.btn-glass-secondary {
+    background: transparent;
+    border: 1px solid #00ffff;
+    color: #00ffff;
+}
+
+.btn-glass-secondary:hover {
+    background: #00ffff;
+    color: #000;
+}

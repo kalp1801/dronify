@@ -1,0 +1,37 @@
+{% extends "logs/base.html" %}
+{% load static %}
+
+{% block title %}Upload Telemetry - Dronify{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/upload.css' %}?v=3">
+{% endblock %}
+
+{% block content %}
+<div class="container-upload">
+    <h2 class="heading-upload">📤 Upload Telemetry Log</h2>
+    <p class="description-upload">Only <strong>.csv</strong> files are accepted for telemetry analysis.</p>
+
+    <div class="upload-container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group-upload">
+                <label for="drone_model">Drone Model:</label>
+                <input type="text" name="drone_model" id="drone_model" required>
+            </div>
+            
+            <div class="form-group-upload">
+                <label for="exhibit_no">Exhibit No:</label>
+                <input type="text" name="exhibit_no" id="exhibit_no" required>
+            </div>
+            <div class="form-group-upload">
+                <label for="file">Select CSV File:</label>
+                <input type="file" name="file" id="file" accept=".csv" required>
+            </div>
+            <button type="submit" class="btn-upload">Upload</button>
+        </form>
+    </div>
+
+    <a href="{% url 'dashboard' %}" class="back-link-upload">⬅ Dashboard</a>
+</div>
+{% endblock %}

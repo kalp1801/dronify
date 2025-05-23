@@ -1,0 +1,66 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* 🌟 Super Class UI - Dark Glassmorphism Theme */
+body {
+    background: #0a0a0a;
+    color: white;
+}
+
+/* 🚀 Unique Styling for Select Column Page */
+
+.container-column {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+.heading-column {
+    font-size: 24px;
+    color: #00ffff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.checkbox-container-column {
+    text-align: left;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.checkbox-label-column {
+    font-size: 18px;
+    color: white;
+}
+
+.error-message-column {
+    color: red;
+    font-weight: bold;
+}
+
+.btn-column {
+    background-color: #00ffff;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-column:hover {
+    background-color: #008c8c;
+    color: white;
+    box-shadow: 0px 0px 10px #00ffff;
+}

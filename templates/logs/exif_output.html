@@ -1,0 +1,36 @@
+{% extends "logs/base.html" %}
+{% load static %}
+{% block title %}EXIF Analysis Result - Dronify{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/exif1.css' %}?v=2">
+
+<div class="telemetry-container glass-box">
+    <h2 class="telemetry-heading">📊 EXIF Metadata Report</h2>
+    <p class="telemetry-description">Filename: <strong>{{ filename }}</strong></p>
+
+    <div class="telemetry-table-wrapper">
+        <table class="telemetry-table">
+            <thead>
+                <tr>
+                    <th>🔑 Key</th>
+                    <th>📄 Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in metadata.items %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="telemetry-btn-group">
+        <a href="{% url 'download_exif_pdf' %}" class="btn-glass">⬇ Download PDF Report</a>
+        <a href="{% url 'dashboard' %}" class="btn-glass-secondary">⬅ Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

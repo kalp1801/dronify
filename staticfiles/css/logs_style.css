@@ -1,0 +1,142 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* 🌟 Super Class UI - Dark Glassmorphism Theme */
+body {
+    background: #0a0a0a;
+    color: white;
+}
+/* 🚀 Logs Page Styling - Unique Naming to Avoid Conflicts */
+
+/* 🌟 Navbar Styling */
+.navbar-logs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.logo-logs {
+    font-size: 26px;
+    font-weight: bold;
+    color: #00ffff;
+    text-transform: uppercase;
+}
+
+.nav-links-logs {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links-logs li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.nav-links-logs li a:hover {
+    background: rgba(0, 255, 255, 0.2);
+    color: #00ffff;
+    box-shadow: 0px 0px 8px #00ffff;
+}
+
+/* 🚀 Logs Section Styling */
+.container-logs {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.heading-logs {
+    font-size: 32px;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.description-logs {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 🚀 Table Styling */
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    font-size: 18px;
+    min-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+.log-table th {
+    background: rgba(0, 255, 255, 0.3);
+    color: #00ffff;
+    text-align: left;
+    padding: 15px;
+    text-transform: uppercase;
+}
+
+.log-table td {
+    padding: 15px;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.log-table tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.log-table tr:hover {
+    background: rgba(0, 255, 255, 0.1);
+}
+
+/* 🔥 Buttons */
+.btn-logs {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #00ffff;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px #00ffff;
+}
+
+/* Button Hover Effect */
+.btn-logs:hover {
+    background: #008c8c;
+    color: white;
+    box-shadow: 0px 0px 15px #00ffff;
+}
+
+/* 🚀 Empty Logs Message */
+.no-logs-message {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-top: 20px;
+}

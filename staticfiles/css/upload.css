@@ -1,0 +1,139 @@
+/* 🌟 General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* 🌟 Super Class UI - Dark Glassmorphism Theme */
+body {
+    background: #0a0a0a;
+    color: white;
+}
+
+/* 🚀 Navbar Styling */
+.navbar-upload {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.logo-upload {
+    font-size: 26px;
+    font-weight: bold;
+    color: #00ffff;
+    text-transform: uppercase;
+}
+
+.nav-links-upload {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links-upload li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.nav-links-upload li a:hover {
+    background: rgba(0, 255, 255, 0.2);
+    color: #00ffff;
+    box-shadow: 0px 0px 8px #00ffff;
+}
+
+/* 🚀 Upload Section */
+.container-upload {
+    width: 50%;
+    margin: 50px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+    text-align: center;
+}
+
+.heading-upload {
+    font-size: 32px;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.description-upload {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 📂 File Input */
+.form-group-upload {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group-upload label {
+    font-size: 18px;
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-group-upload input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: white;
+    border-radius: 6px;
+}
+
+/* 🔥 Upload Button */
+.btn-upload {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #00ffff;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px #00ffff;
+}
+
+/* Button Hover Effect */
+.btn-upload:hover {
+    background: #008c8c;
+    color: white;
+    box-shadow: 0px 0px 15px #00ffff;
+}
+
+/* 🔙 Back Link */
+.back-link-upload {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+    color: #00ffff;
+    text-decoration: none;
+}
+
+.back-link-upload:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,136 @@
+.dashboard-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+    font-size: 36px;
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+.dashboard-header p {
+    font-size: 18px;
+    color: #d0faff;
+}
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.dashboard-card {
+    background: rgba(0, 255, 255, 0.08);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    width: 270px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+.dashboard-card h3 {
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.dashboard-card p {
+    font-size: 14px;
+    color: #b0eaff;
+    margin-bottom: 20px;
+}
+
+.dashboard-btn {
+    display: inline-block;
+    background-color: #00ffff;
+    color: #000;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dashboard-btn:hover {
+    background-color: #008c8c;
+    color: #fff;
+    box-shadow: 0 0 12px #00ffff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.dashboard-section {
+    padding: 40px;
+    color: #fff;
+    background-color: rgba(0, 15, 30, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.15);
+    width: 280px;
+    text-align: center;
+}
+
+.card h3 {
+    color: #00ffff;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #cceeff;
+    font-size: 15px;
+}
+
+.card-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #00ffff;
+    color: #000;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.card-btn:hover {
+    background: #008c8c;
+    color: white;
+    box-shadow: 0 0 12px #00ffff;
+}

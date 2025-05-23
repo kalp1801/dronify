@@ -1,31 +1,51 @@
+{% extends "logs/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log Details</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1>Log Details</h1>
-    <h3>{{ log.file.name }}</h3>
+
+{% block title %}View Log - DroneXtract{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/view_log.css' %}?v=1">
+
+<div class="view-log-container glass-box">
+    <h2 class="view-log-title">📄 Log Details</h2>
+    <p class="view-log-filename">File: {{ log.file.name }}</p>
 
     <form method="POST" action="{% url 'generate_report' log.id 'pdf' %}">
         {% csrf_token %}
-        <p>Select Columns for Report:</p>
-        
-        {% for column in columns %}
-            <label>
-                <input type="checkbox" name="columns" value="{{ column }}" checked> {{ column }}
-            </label>
-            <br>
-        {% endfor %}
+        <h3 class="section-heading">Select Columns for Report:</h3>
 
-        <br>
-        <button type="submit">Download PDF Report</button>
+        <div class="select-all">
+            <input type="checkbox" id="select-all" onchange="toggleSelectAll(this)">
+            <label for="select-all">Select All</label>
+        </div>
+
+        <div class="checkbox-grid">
+            {% for column in columns %}
+            <label class="checkbox-item">
+                <input type="checkbox" name="columns" value="{{ column }}">
+                {{ column }}
+            </label>
+            {% endfor %}
+        </div>
+        <div class="back-section">
+            <button type="submit" class="btn-glass">
+                <i class="fa fa-download" style="margin-right: 6px;"></i> Download PDF Report</button>
+            <a href="{% url 'log_list' %}" class="btn-glass-secondary">
+                <i class="fa fa-arrow-left" style="margin-right: 6px;"></i> Back to Logs
+            </a>
+        </div>
     </form>
 
-    <a href="{% url 'log_list' %}">Back to Logs</a>
-</body>
-</html>
+    <!-- <div class="back-section">
+        <a href="{% url 'log_list' %}" class="btn-glass-secondary">⬅ Back to Logs</a>
+    </div> -->
+</div>
+
+<script>
+    function toggleSelectAll(source) {
+        document.querySelectorAll('input[name="columns"]').forEach(checkbox => {
+            checkbox.checked = source.checked;
+        });
+    }
+</script>
+{% endblock %}
